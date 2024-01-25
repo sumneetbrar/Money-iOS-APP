@@ -78,7 +78,7 @@ struct ContentView: View {
                 )
             
             Rectangle()
-                .fill(Color.green)
+                .fill(Color.blue)
                 .frame(width: 350, height: 100)
                 .cornerRadius(50)
                 .shadow(color: Color.black, radius: 10, x: 0, y: 2)
