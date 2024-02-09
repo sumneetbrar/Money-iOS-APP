@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomePage: View {
     var body: some View {
+        
+        // maybe this page should be split into sections
+        
         NavigationStack {
             //Color(.white)
                 //.ignoresSafeArea()
@@ -107,7 +110,7 @@ struct HomePage: View {
                         .fill(Color.green)
                         .frame(width: 350, height: 100)
                         .cornerRadius(50)
-                        .shadow(color: Color.black, radius: 10, x: 0, y: 2)
+                        .shadow(color: Color.black, radius: 5, x: 0, y: 2)
                         .offset(y: 70)
                     
                     // Profile Button

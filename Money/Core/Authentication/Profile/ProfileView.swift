@@ -19,6 +19,8 @@ struct ProfileView: View {
     var body: some View {
         if let user = viewModel.currentUser {
             List {
+                
+                // User Section
                 Section {
                     HStack {
                         Text(user.initials)
@@ -42,6 +44,7 @@ struct ProfileView: View {
                     }
                 }
                 
+                // General Section - contains version
                 Section("General") {
                     HStack {
                         SettingsRowView(imageName: "gear",
@@ -55,6 +58,7 @@ struct ProfileView: View {
                     }
                 }
                 
+                // Account Section - has sign out and delete account functionality
                 Section("Account") {
                     Button {
                         viewModel.signOut()

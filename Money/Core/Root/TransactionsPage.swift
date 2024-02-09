@@ -12,12 +12,15 @@ struct TransactionsPage: View {
     
     var body: some View {
         VStack(spacing: 30) {
+            
+            // Title
             Text("Transactions")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(Color.black)
-            //.multilineTextAlignment(.center)
             
+            
+            // Transaction Rectangles - probably should refactor this
             Rectangle()
                 .fill(Color.green)
                 .frame(width: 350, height: 100)
@@ -84,6 +87,8 @@ struct TransactionsPage: View {
             
             Spacer()
             
+            
+            // Home Button
             Button {
                 dismiss()
             } label: {
