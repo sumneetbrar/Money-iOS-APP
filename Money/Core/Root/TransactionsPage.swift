@@ -13,12 +13,12 @@ struct TransactionsPage: View {
     var body: some View {
         
         // Title
-        Text("Transactions")
+        Text("")
             .font(.largeTitle)
             .fontWeight(.bold)
             .foregroundColor(Color.black)
         
-        ScrollView(){ // Enables scrolling
+        ScrollView(showsIndicators: false){ // Enables scrolling
             VStack( spacing: 30) {
                 
                 // Transaction Rectangles - probably should refactor this
@@ -135,25 +135,25 @@ struct TransactionsPage: View {
                     )
                 
                 Spacer()
-            }
+            } // end of VStack
+            .padding(10)
             
-        } // -- End of scrollView
+        } // End of scrollView
         
         
         // Home Button
-        Button {
-            dismiss()
-        } label: {
-            VStack (spacing: 10) {
-                Image(systemName: "house")
-                    .resizable()
-                    .frame(width: 60, height: 50)
-                Text("Home")
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .font(.system(size: 20))
+        // Title
+            
+            Button {
+                dismiss()
+            } label: {
+                VStack (spacing: 10) {
+                    Image(systemName: "house")
+                        .resizable()
+                        .frame(width: 40, height: 30)
+                }
+                .foregroundColor(.black)
             }
-            .foregroundColor(.black)
-        }
 
     }
 }
