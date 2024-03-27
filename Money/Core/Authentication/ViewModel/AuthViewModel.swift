@@ -91,4 +91,26 @@ class AuthViewModel: ObservableObject {
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
         self.currentUser = try? snapshot.data(as: User.self)
     }
+    
+    // Popup actions
+    enum Action {
+        case na
+        case present
+        case dismiss
+    }
+    
+    @Published private(set) var action: Action = .na
+    
+    func present(){
+        guard !action.isPresented else{return} //prevents two popups existing at the same time
+        self.action = .present
+    }
+    
+    func dismiss(){
+        self.action = .dismiss
+    }
+}
+
+extension AuthViewModel.Action{
+    var isPresented: Bool {self == .present}
 }

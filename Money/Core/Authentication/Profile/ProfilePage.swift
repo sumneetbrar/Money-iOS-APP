@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ProfilePage: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    
+    @State private var isSignOutPresented = false
+    @State private var isDeletePopupPresented = false
     
     var body: some View {
         if let user = viewModel.currentUser {
@@ -52,11 +53,22 @@ struct ProfilePage: View {
                 
                 Section("Account") {
                     Button {
-                        viewModel.signOut()
+                        withAnimation{
+                            viewModel.present()
+                        }
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: .red)
                     }
-                    
+                    .overlay(alignment: .bottom){
+                        if viewModel.action.isPresented{
+                            SignOutPopupView{
+                                withAnimation{
+                                    viewModel.dismiss()
+                            }
+                        }
+                    }
+                }
+                    // I want to put the popup in here
                     Button {
                         print("Delete Account...")
                     } label: {
